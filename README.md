@@ -1,1 +1,1 @@
-Repository for the SDPT and PAO class project
+Repository for the SDPT and PAO classes project
