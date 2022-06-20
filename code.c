@@ -1,3 +1,12 @@
+/*************************************************************
+Filename: code.c
+
+Description: Source file for the edge enhancer code for the 
+	     SDPT & PAO project
+
+Author: Alexandru-Iulian Constantinescu
+**************************************************************/
+#include "code.h"
 #include <stdlib.h>
 #include <time.h>
 #include <omp.h>
