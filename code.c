@@ -1,3 +1,11 @@
+/*************************************************************
+Filename: code.c
+
+Description: Source file for the edge enhancer code for the 
+             SDPT & PAO project
+
+Author: Alexandru-Iulian Constantinescu
+**************************************************************/
 #include <stdlib.h>
 #include <time.h>
 #include <omp.h>
@@ -194,15 +202,19 @@ void process_png_file() {
 
 
 int main(){
-    // gcc cod.c -lpng -fopenmp -O3 -o prog
+    // gcc code.c -lpng -fopenmp -O3 -o prog
     
-    char* filename = "cat.png";
-    //char* filename = "dog.png";
-    //char* filename = "lena.png";
+    char* filename = "image_cat.png";
+    //char* filename = "image_dog.png";
+    //char* filename = "image_lena.png";
+    
+    char* result_filename = "image_cat2.png";
+    //char* result_filename = "image_dog2.png";
+    //char* result_filename = "image_lena2.png";
     
     read_png_file(filename);
     process_png_file();
-    write_png_file(filename);
+    write_png_file(result_filename);
     
     printf("Done processing image\n");
     return 0;
