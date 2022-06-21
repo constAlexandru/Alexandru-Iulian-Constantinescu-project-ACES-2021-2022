@@ -160,9 +160,7 @@ void process_png_file() {
        {0, -1, 0}
    };
     
-    
     start = clock();
-    # pragma omp parallel for 
     for(unsigned short i=1; i<height-1; ++i)
         for(unsigned short j=1; j<width-1; ++j)
             for(unsigned char k=0; k<3; ++k)
@@ -205,13 +203,13 @@ void process_png_file() {
 int main(int argc, char** argv){
     // gcc code.c -lpng -fopenmp -O3 -o prog
     
-    char* filename = "image_cat.png";
-    //char * filename = argv[1];
+    //char* filename = "image_cat.png";
+    char * filename = argv[1];
     //char* filename = "image_dog.png";
     //char* filename = "image_lena.png";
     
-    char* result_filename = "image_cat.png";
-    //char * result_filename = argv[1];
+    //char* result_filename = "image_cat.png";
+    char * result_filename = argv[1];
     //char* result_filename = "image_dog.png";
     //char* result_filename = "image_lena.png";
 
