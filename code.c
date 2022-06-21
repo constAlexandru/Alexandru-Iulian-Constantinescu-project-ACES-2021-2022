@@ -151,8 +151,8 @@ void process_png_file() {
     }
   }
     clock_t end = clock();
-    float dif = difftime(end, start)/CLOCKS_PER_SEC;
-    printf ("First for took %f seconds to run.\n", dif);
+    float dif1 = difftime(end, start)/CLOCKS_PER_SEC;
+    printf ("First for took %f seconds to run.\n", dif1);
     
    short int kernel[3][3] = {
        {0 , -1, 0},
@@ -180,8 +180,8 @@ void process_png_file() {
              temp2[i][j][k] = temp2[i][j][k] < 0 ? 0 : temp2[i][j][k];
         }
     end = clock();
-    dif = difftime(end, start)/CLOCKS_PER_SEC;
-    printf ("Second for took %f seconds to run.\n", dif);
+    float dif2 = difftime(end, start)/CLOCKS_PER_SEC;
+    printf ("Second for took %f seconds to run.\n", dif2);
     
     start = clock();
     # pragma omp parallel for schedule(dynamic, 1)
@@ -195,8 +195,9 @@ void process_png_file() {
         }
     }
     end = clock();
-    dif = difftime(end, start)/CLOCKS_PER_SEC;
-    printf ("Third for took %f seconds to run.\n", dif);
+    float dif3 = difftime(end, start)/CLOCKS_PER_SEC;
+    printf ("Third for took %f seconds to run.\n", dif3);
+    printf ("Total time processing image: %f seconds\n", dif1 + dif2 + dif3);
 }
 
 
@@ -208,9 +209,9 @@ int main(){
     //char* filename = "image_dog.png";
     //char* filename = "image_lena.png";
     
-    char* result_filename = "image_cat2.png";
-    //char* result_filename = "image_dog2.png";
-    //char* result_filename = "image_lena2.png";
+    char* result_filename = "image_cat.png";
+    //char* result_filename = "image_dog.png";
+    //char* result_filename = "image_lena.png";
     
     read_png_file(filename);
     process_png_file();
