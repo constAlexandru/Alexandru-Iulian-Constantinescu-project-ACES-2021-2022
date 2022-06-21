@@ -202,17 +202,19 @@ void process_png_file() {
 
 
 
-int main(){
+int main(int argc, char** argv){
     // gcc code.c -lpng -fopenmp -O3 -o prog
     
     char* filename = "image_cat.png";
+    //char * filename = argv[1];
     //char* filename = "image_dog.png";
     //char* filename = "image_lena.png";
     
     char* result_filename = "image_cat.png";
+    //char * result_filename = argv[1];
     //char* result_filename = "image_dog.png";
     //char* result_filename = "image_lena.png";
-    
+
     read_png_file(filename);
     process_png_file();
     write_png_file(result_filename);
